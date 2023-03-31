@@ -5,23 +5,27 @@ const playerMove = document.querySelector(".card.player img")
 const arr = ["rock", "paper", "scissors"];
 let result = [];
 let score = 0;
+let lock = false;
 
 choice.forEach(el => {
     el.addEventListener("click", handleMove)
-
+    
     function handleMove(e) {
+        if(lock) return;
+        lock = true;
         const displayResult = document.querySelector("h2:nth-child(3)")
         displayResult.textContent = "VS";
         displayResult.style.color = "black";
-        result = [];
+
         opponentMove.src = "";
+        
         playerMove.src = e.target.children[0].getAttribute("src");
         playerMove.setAttribute("data-attr", e.target.children[0].getAttribute("data-attr"))
 
         console.log(playerMove.getAttribute("data-attr"))
 
         result.push(e.target.children[0].getAttribute("data-attr"));
-
+        
         setTimeout(() => {
             const randomNum = Math.trunc(Math.random() * 3)
 
@@ -46,6 +50,8 @@ choice.forEach(el => {
                 displayResult.textContent = "LOSE";
                 displayResult.style.color = "red";
             }
+            result = [];
+            lock = false;
         }, 1000)
 
         function winMove() {

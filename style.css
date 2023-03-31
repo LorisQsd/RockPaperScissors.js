@@ -58,6 +58,7 @@ h2:nth-child(5) {
     display: flex;
     justify-content: center;
     align-items: center;
+    user-select: none;
 }
 
 img {
@@ -70,6 +71,7 @@ img {
     flex-wrap: wrap;
     justify-content: center;
     gap: 40px;
+    user-select: none;
 }
 
 .pick-card {
