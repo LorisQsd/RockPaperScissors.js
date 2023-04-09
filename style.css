@@ -96,3 +96,15 @@ p {
 p span {
     font-weight: bold;
 }
+
+p:first-child {
+    margin-top: 10px;
+}
+
+h2:nth-child(2) {
+    margin-top: 0;
+}
+
+h2:nth-child(6) {
+    margin-bottom: 0;
+}
